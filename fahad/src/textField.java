@@ -84,10 +84,22 @@ public void checkRow(JTextField jf, int row, int col)
 	    			  if ( gp.check_row(Character.getNumericValue(c), row) != 0 || gp.check_column(Character.getNumericValue(c), col) != 0 || gp.checkSubGrid(Character.getNumericValue(c), row, col) == false)
 	    			  {
 	    				  jf.setBackground(Color.RED);
+	    				  if (( gp.check_row(Character.getNumericValue(c), row) != 0)) 
+	    					{
+	    					  gp.set_error("Same # in ROW! Try again!");
+	    					}
+	    				  else if(gp.check_column(Character.getNumericValue(c), col) != 0 )
+	    				  	{
+	    					  gp.set_error("Same # in COLUMN! Try again!");
+	    				  	}
+	    				  else if(gp.checkSubGrid(Character.getNumericValue(c), row, col) == false)
+	    				  	{
+	    					  gp.set_error("Same # in GRID! Try again!");
+	    				  	}
 	    			  }
 	    			  else if ( gp.check_row(Character.getNumericValue(c), row) == 0 && gp.check_column(Character.getNumericValue(c), col) == 0 && gp.checkSubGrid(Character.getNumericValue(c), row, col))
 	    			  {
-	    				  
+	    				  gp.set_error("");
 	    				  jf.setBackground(Color.GREEN);
 			    		  jf.setForeground(Color.BLACK);
 			    		  //jf.setEditable(false);

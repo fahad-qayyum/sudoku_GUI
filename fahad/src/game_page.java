@@ -10,8 +10,8 @@ public class game_page {
 	int column_array[]= new int[16];
 	static int[][] values = new int[4][4];
 	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
-	Font errFont = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,22);
-	JLabel err = new JLabel();
+	Font errFont = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
+	static JLabel err = new JLabel();
 	static JPanel panel = new JPanel(null);
 	JFrame frame = new JFrame("Sudoku");
 
@@ -23,7 +23,7 @@ public game_page()
 public game_page(String text)
 	{
 	err.setText(text);
-	err.setBounds(135, 275, 300, 50);
+	err.setBounds(100, 275, 300, 50);
 	panel.add(err);
 	err.setFont(errFont);
 	err.setForeground(Color.red);
@@ -237,5 +237,8 @@ public void add_buttons()
 	redo.setBounds(265, 380, 100, 50);
 	
 }
-
+public void set_error(String error)
+{
+	game_page gp= new game_page(error);
+}
 }
