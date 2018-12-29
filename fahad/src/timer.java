@@ -25,11 +25,7 @@ public timer(textField[][] grid, JLabel countdownLabel) {
             if (curr_time == 0) {
                 final Timer timer = (Timer) e.getSource();
                 timer.stop();
-                if (curr_time == 0)
-                		{
-            				game_page gp = new game_page("Game is over!");
-                		}
-                /*for (int i=0;i<4;i++)
+               for (int i=0;i<4;i++)
                 {
                 	for (int j=0;j<4;j++)
                 	{
@@ -38,7 +34,7 @@ public timer(textField[][] grid, JLabel countdownLabel) {
                 		
 
                     }
-                }*/
+                }
             }
             else if (curr_time <= 60 )
             {
