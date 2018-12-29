@@ -20,7 +20,8 @@ import javax.swing.*;
 			frame.setVisible(false);
 			game_page gp = new game_page(400,500);
 			// setting time to 301 Seconds
-			
+			timer t = new timer();
+			t.freeze_time(false);
 			
 		}
 		
