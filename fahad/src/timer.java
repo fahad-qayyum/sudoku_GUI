@@ -4,20 +4,25 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class timer extends Component{
-
+	private int curr_time = 301;
   //  JLabel the_time = time1;
+public timer(int time)
+{
+curr_time = time;	
+}
 public timer(textField[][] grid, JLabel countdownLabel) {
 	//textField abort = new textField(); 
  //   final JLabel countdownLabel = new JLabel("05:00");
   //  timer time1 = new timer();
 	
 	final Timer t = new Timer(1000, new ActionListener() {
-        int time = 301;
+		//curr_time = 301;
         @Override
         public void actionPerformed(ActionEvent e) {
-            time--;
-            countdownLabel.setText("Timer: "+format(time / 60) + ":" + format(time % 60));
-            if (time == 0) {
+        	curr_time--;
+            
+            countdownLabel.setText("Timer: "+format(curr_time / 60) + ":" + format(curr_time % 60));
+            if (curr_time == 0) {
                 final Timer timer = (Timer) e.getSource();
                 timer.stop();
                 for (int i=0;i<4;i++)
@@ -31,21 +36,21 @@ public timer(textField[][] grid, JLabel countdownLabel) {
                     }
                 }
             }
-            else if (time <= 60)
+            else if (curr_time <= 60 )
             {
             	countdownLabel.setForeground(Color.red);
             }
-            else if(time > 60)
+            else if(curr_time > 60)
             {
             	countdownLabel.setForeground(Color.green);
             }
-        }
+        	}
         
     });
       t.start();
    }
 
-  private static String format(int i) {
+  private String format(int i) {
       String result = String.valueOf(i);
       if (result.length() == 1) {
           result = "0" + result;
@@ -53,7 +58,13 @@ public timer(textField[][] grid, JLabel countdownLabel) {
       return result;
   }
 
- 
+ public int get_time() {
+	 return this.curr_time;
+ }
+/* public void reset_timer()
+ {
+	 curr_time = 301;
+ }*/
 }
 
 

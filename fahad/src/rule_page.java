@@ -44,7 +44,10 @@ public rule_page()
 	rulesPanel.add(start);
 	start.setBounds(130, 300, 130, 50);
 	start.setFont(font);
-	start.addMouseListener(new MouseAdapter() {
+	// adding mouse motion listener to start button
+	mouse m = new mouse(start);
+
+	/*	start.addMouseListener(new MouseAdapter() {
 		
 		Color buttonColr = Color.decode("#C71585");
 		
@@ -61,7 +64,7 @@ public rule_page()
 		    	 start.setContentAreaFilled(true);
 		    	 start.setForeground(Color.black);
 		      }
-		});
+		});*/
 	
 	click click = new click(rulesFrame);//,val);
 	start.addActionListener(click);

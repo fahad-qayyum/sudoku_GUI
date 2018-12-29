@@ -114,22 +114,29 @@ public game_page(int width, int height )
 
 		for(int i=0;i<counter;i++)
 		{
-			textField tf= new textField(i);
+			//textField tf= new textField(i);
 			cell[row_array[i]][column_array[i]].checkRow(cell[row_array[i]][column_array[i]].get_tf(), row_array[i], column_array[i]);
-			if (tf.flag == (false))
+			/*if (tf.flag == (false))
 					{
 						cell[row_array[i]][column_array[i]].setEditable(false);
 						tf.set_flag(false);
-					}
+					}*/
 		}	
 		//cell[0][0].checkRow(cell[0][0].get_tf(), 0);
-		textListener listen = new textListener(cell[0][0]);
-		cell[0][0].get_tf().addActionListener(listen);
+		//textListener listen = new textListener(cell[0][0]);
+		//cell[0][0].get_tf().addActionListener(listen);
 		
+		// adding buttons to cell
 		add_buttons();
 		
-
-		
+		//checking if the user won or lost
+		/*if (cells_with_values() == 15) // meaning all cells are full
+		{
+			if (check_result(calculate_result()) == true)
+				set_error("Hurrah! You WON!");
+				else	
+				set_error("You LOST! Try again!");
+		}	*/
 }
 
 public int check_column(int n, int c)
@@ -216,29 +223,84 @@ public void add_buttons()
 	JLabel time = new JLabel();
 	timer timer = new timer(cell , time);
 	
+	// for time on panel
 	panel.add(time);
 	time.setBounds(10, 0, 120, 50);
 	time.setFont(font);
 
+	// for restart button	
 	JButton restart = new JButton("Restart");
 	panel.add(restart);
 	restart.setBounds(25, 380, 100, 50);
 	click click = new click(frame);
 	//click c = new click(values);
 	restart.addActionListener(click);
+	mouse m=new mouse(restart);
 	
-	
-	
+	// for undo button
 	JButton undo = new JButton("Undo");
 	panel.add(undo);
 	undo.setBounds(145, 380, 100, 50);
-	JButton redo = new JButton("Redo");
-	panel.add(redo);
-	redo.setBounds(265, 380, 100, 50);
+	mouse m1=new mouse(undo);
+
+	
+	// for redo button
+	JButton result = new JButton("Result");
+	panel.add(result);
+	result.setBounds(265, 380, 100, 50);
+	mouse m2=new mouse(result);
+	redo_listener r = new redo_listener();
+	result.addActionListener(r);
 	
 }
 public void set_error(String error)
 {
 	game_page gp= new game_page(error);
+}
+public int[] calculate_result()
+{
+	int[] arr = new int[4];
+	int sum = 0;
+	for (int x =0; x< 4; x++)
+	{
+		for (int y =0; y< 4; y++)
+		{
+			sum += values[x][y];
+		}
+		arr[x] = sum;
+		sum = 0;
+	}
+	return arr;
+}
+public boolean check_result(int[] arr)
+{
+	boolean flag = false;
+	for(int i =0 ; i < arr.length; i++)
+	{
+		if(arr[i] == 40)
+		{
+			flag = true;
+		}
+		else
+		{
+			flag = false;
+		}
+	}
+	return flag;
+}
+public int cells_with_values()
+{
+	int count_cells= 0;
+	for(int x =0 ; x < 4; x++)
+	{
+		for(int y= 0; y < 4; y++)
+		{
+			if( values[x][y]!= 0)
+			{
+				count_cells++;
+			}
+		}
+	}
+	return count_cells;
 }
 }
