@@ -11,7 +11,7 @@ import javax.swing.Timer;
  * @author fqayy
  *
  */
-public class redo_listener implements ActionListener {
+public class result_checker implements ActionListener {
 
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)

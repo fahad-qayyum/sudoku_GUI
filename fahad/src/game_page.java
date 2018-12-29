@@ -249,7 +249,7 @@ public void add_buttons()
 	panel.add(result);
 	result.setBounds(265, 380, 100, 50);
 	mouse m2=new mouse(result);
-	redo_listener r = new redo_listener();
+	result_checker r = new result_checker();
 	result.addActionListener(r);
 	
 }
