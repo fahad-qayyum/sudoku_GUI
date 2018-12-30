@@ -68,7 +68,7 @@ public game_page(int width, int height )
 	}
 	int count = 0 ;
 	Random rn = new Random();
-//	undo_Stack undo= new undo_Stack();
+	//undo_Stack undo= new undo_Stack();
 	// printing the random numbers 
 	while(count < 4)
 	{	
@@ -80,7 +80,7 @@ public game_page(int width, int height )
 			cell[x][y].get_tf().setText(Integer.toString(value));
 			cell[x][y].get_tf().setEditable(false);
 			values[x][y] = value;	
-//			undo.add(value, x, y);
+			//undo.push(value, x, y);
 			count++;
 		}
 	

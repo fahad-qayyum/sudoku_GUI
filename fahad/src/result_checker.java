@@ -45,5 +45,8 @@ public class result_checker implements ActionListener {
 	{
 		return status;
 	}
-
+	public void set_status(boolean b)
+	{
+		status = b;
+	}
 }

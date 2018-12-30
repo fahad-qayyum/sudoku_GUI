@@ -20,6 +20,8 @@ import javax.swing.*;
 			frame.setVisible(false);
 			game_page gp = new game_page(400,500);
 			undo_Stack undo = new undo_Stack();
+			result_checker result = new result_checker();
+			result.set_status(false);
 			// setting time to 301 Seconds
 			timer t = new timer();
 			t.freeze_time(false);

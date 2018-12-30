@@ -35,7 +35,7 @@ public rule_page()
 			+ " <br/>2: Numbers shouldn't be duplicated in raw"
 			+ " <br/>3: Numbers shouldn't be duplicated in column"
 			+ " <br/>4: In the subgrid No duplicate Numbers"
-			+ " <br/>5: You can UNDO only if the cell turns<font color =red> RED</font></html>");
+			+ " <br/>5: You can UNDO only if the cell turns<font color =green> GREEN</font></html>");
 	rulesPanel.add(rules);
 	rules.setFont(font);
 	rules.setForeground(Color.white);
