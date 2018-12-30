@@ -68,23 +68,24 @@ public game_page(int width, int height )
 	}
 	int count = 0 ;
 	Random rn = new Random();
-	
+	undo_Stack undo= new undo_Stack();
 	// printing the random numbers 
 	while(count < 4)
 	{	
 		x = rn.nextInt(4);
 		y = rn.nextInt(4);
 		value = rn.nextInt(4)+1;
-		if (checkSubGrid(value,x,y) && check_column(value,y)== 0 && check_row(value,x)== 0 )
+		if (checkSubGrid(value,x,y) && check_column(value,y)== 0 && check_row(value,x)== 0 && cell[x][y].get_tf().isEditable())
 		{
 			cell[x][y].get_tf().setText(Integer.toString(value));
 			cell[x][y].get_tf().setEditable(false);
 			values[x][y] = value;	
+			undo.add(value, x, y);
 			count++;
 		}
 	
 	}
-	
+	undo.display();
 		// adding the unused element indexes to the row and column array
 	
 		int counter = 0; // it would give the number of editable cells

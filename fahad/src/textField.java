@@ -59,12 +59,13 @@ public JTextField get_tf()
 
 public void checkRow(JTextField jf, int row, int col)
 {
+	undo_Stack undo = new undo_Stack();
 	timer t= new timer(301); //doesn't matter what u put here
 	tf.addKeyListener(new KeyAdapter() {
 	   public void keyTyped(KeyEvent e) {
 	      char c = e.getKeyChar();
 	     // if (gp.checkRow(Integer.toString(2), row)) {
-	    	  if (((c < '1') || (c > '4')) || (tf.getText().length() >= 1) || t.get_time() == '0') {
+	    	  if (((c < '1') || (c > '4')) || (tf.getText().length() >= 1) || t.get_time() <= 0) {
 	 	         e.consume(); 
 	 	         // ignore event
 	 	      }
@@ -81,7 +82,7 @@ public void checkRow(JTextField jf, int row, int col)
 	    				System.out.println();
 	    			}
 	    		  
-	    			  if ( gp.check_row(Character.getNumericValue(c), row) != 0 || gp.check_column(Character.getNumericValue(c), col) != 0 || gp.checkSubGrid(Character.getNumericValue(c), row, col) == false)
+	    			  if ( gp.check_row(Character.getNumericValue(c), row) != 0 || gp.check_column(Character.getNumericValue(c), col) != 0 || gp.checkSubGrid(Character.getNumericValue(c), row, col) == false && t.get_time() > 0)
 	    			  {
 	    				  if (t.get_time() == 0)
 	    				  {
@@ -117,7 +118,12 @@ public void checkRow(JTextField jf, int row, int col)
 	    					  jf.setBackground(Color.GREEN);
 	    					  jf.setForeground(Color.BLACK);
 	    					  game_page.values[row][col] = Character.getNumericValue(c);
+	    					  // setting the value of the textfield to whatever number key is pressed
+	    					  gp.cell[row][col].get_tf().setText(String.valueOf(c));
+	    					  // making that textField to be null.
+	    					  gp.cell[row][col].get_tf().setEditable(false);
 	    					  //set_flag(true);
+	    					  undo.add(Character.getNumericValue(c), row, col);
 	    				  }
 	    			  }
 	    			  else

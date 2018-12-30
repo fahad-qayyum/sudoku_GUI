@@ -23,7 +23,7 @@ public class result_checker implements ActionListener {
 		game_page gp = new game_page();
 		if (gp.cells_with_values() == 16) // meaning all cells are full
 		{
-				gp.set_error("  Hurrah! You WON!");
+				gp.set_error("\t\tHurrah! You WON!");
 				for (int i=0;i<4;i++)
                 {
                 	for (int j=0;j<4;j++)
