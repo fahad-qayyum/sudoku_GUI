@@ -52,7 +52,7 @@ public timer(textField[][] grid, JLabel countdownLabel) {
             	countdownLabel.setForeground(Color.green);
             }
         	}
-        
+         
     });
       t.start();
    }

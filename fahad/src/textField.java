@@ -123,7 +123,8 @@ public void checkRow(JTextField jf, int row, int col)
 	    					  // making that textField to be null.
 	    					  gp.cell[row][col].get_tf().setEditable(false);
 	    					  //set_flag(true);
-	    					  undo.add(Character.getNumericValue(c), row, col);
+	    					  undo.push(Character.getNumericValue(c), row, col);
+	    					  undo.display();
 	    				  }
 	    			  }
 	    			  else

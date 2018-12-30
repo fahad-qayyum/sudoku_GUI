@@ -68,7 +68,7 @@ public game_page(int width, int height )
 	}
 	int count = 0 ;
 	Random rn = new Random();
-	undo_Stack undo= new undo_Stack();
+//	undo_Stack undo= new undo_Stack();
 	// printing the random numbers 
 	while(count < 4)
 	{	
@@ -80,12 +80,12 @@ public game_page(int width, int height )
 			cell[x][y].get_tf().setText(Integer.toString(value));
 			cell[x][y].get_tf().setEditable(false);
 			values[x][y] = value;	
-			undo.add(value, x, y);
+//			undo.add(value, x, y);
 			count++;
 		}
 	
 	}
-	undo.display();
+//	undo.display();
 		// adding the unused element indexes to the row and column array
 	
 		int counter = 0; // it would give the number of editable cells
@@ -243,6 +243,8 @@ public void add_buttons()
 	panel.add(undo);
 	undo.setBounds(145, 380, 100, 50);
 	mouse m1=new mouse(undo);
+	undoListener back= new undoListener();
+	undo.addActionListener(back);
 
 	
 	// for redo button

@@ -27,15 +27,15 @@ public rule_page()
 	rulesPanel = new JPanel(null);
 	rulesPanel.setBackground(color);
 	rulesFrame.add(rulesPanel);
-	
 	JLabel rules = new JLabel();
 	rules.setBounds(10, 0, 390, 200);
 	
-	rules.setText(tab+"<html>Rules!<br/><br/>"
+	rules.setText(tab+"<html><font color = #00b78f>Rules!</font><br/><br/>"
 			+ "1: The numbers should be between 1 and 4"
 			+ " <br/>2: Numbers shouldn't be duplicated in raw"
 			+ " <br/>3: Numbers shouldn't be duplicated in column"
-			+ " <br/>4: In the subgrid No duplicate Numbers</html>");
+			+ " <br/>4: In the subgrid No duplicate Numbers"
+			+ " <br/>5: You can UNDO only if the cell turns<font color =red> RED</font></html>");
 	rulesPanel.add(rules);
 	rules.setFont(font);
 	rules.setForeground(Color.white);
