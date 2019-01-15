@@ -9,7 +9,7 @@ public class game_page {
 	int row_array[]= new int[16];
 	int column_array[]= new int[16];
 	static int[][] values = new int[4][4];
-	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
+	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,20);
 	Font errFont = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
 	static JLabel err = new JLabel();
 	static JPanel panel = new JPanel(null);
@@ -23,7 +23,7 @@ public game_page()
 public game_page(String text)
 	{
 	err.setText(text);
-	err.setBounds(100, 275, 300, 50);
+	err.setBounds(100, 250, 300, 50);
 	panel.add(err);
 	err.setFont(errFont);
 	err.setForeground(Color.red);
