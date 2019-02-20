@@ -3,14 +3,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-/**
- * 
- */
-
-/**
- * @author fqayy
- *
- */
 public class result_checker implements ActionListener {
 
 	/* (non-Javadoc)
@@ -24,6 +16,7 @@ public class result_checker implements ActionListener {
 		if (gp.cells_with_values() == 16) // meaning all cells are full
 		{
 				gp.set_error("\t\tHurrah! You WON!");
+
 				status = true;
 				for (int i=0;i<4;i++)
                 {
@@ -32,13 +25,14 @@ public class result_checker implements ActionListener {
                 		gp.cell[i][j].get_tf().setEditable(false);
                 		 timer t = new timer();
                 		 t.freeze_time(true);
-                			
                     }
                 }
 			
 		}
 		else	
 			gp.set_error("Game not Yet finished!");
+			gp.err.setBounds(104, 275, 300, 50);
+
 		
 	}
 	public boolean isWon()

@@ -1,11 +1,4 @@
-/**
- * 
- */
 
-/**
- * @author Fahad
- *
- */
 public class undo_Stack{
 	private static int[] num_array = new int[16];
 	private static int[] row_array = new int[16];

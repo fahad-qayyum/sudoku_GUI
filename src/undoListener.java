@@ -1,15 +1,6 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-/**
- * 
- */
-
-/**
- * @author Fahad
- *
- */
 public class undoListener implements ActionListener{
 
 	@Override
@@ -33,10 +24,14 @@ public class undoListener implements ActionListener{
 		else if(result.isWon() == true)
 		{
 			gp.set_error("You already WON! Restart now");
+			gp.err.setBounds(68, 275, 300, 50);
+
 		}
 		else if(undo.elements() == 0)
 		{
 			gp.set_error("Nothing to undo");
+			gp.err.setBounds(138, 275, 300, 50);
+
 		}
 		else
 		{

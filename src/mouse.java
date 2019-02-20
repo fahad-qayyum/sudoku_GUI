@@ -13,7 +13,7 @@ public class mouse implements ActionListener{
 	
 		button.addMouseListener(new MouseAdapter() {
 	
-	Color buttonColr = Color.decode("#C71585");
+	Color buttonColr = Color.decode("#52FFB8");
 	
 	     public void mouseEntered(MouseEvent me) {
 	    	 button.setFocusPainted(true);

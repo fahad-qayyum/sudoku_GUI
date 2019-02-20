@@ -9,11 +9,12 @@ public class game_page {
 	int row_array[]= new int[16];
 	int column_array[]= new int[16];
 	static int[][] values = new int[4][4];
-	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,20);
-	Font errFont = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
+	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
+	Font errFont = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,20);
 	static JLabel err = new JLabel();
 	static JPanel panel = new JPanel(null);
 	JFrame frame = new JFrame("Sudoku");
+	Color errColor = Color.decode("#F6F5AE");
 
 public game_page()
 {
@@ -23,10 +24,10 @@ public game_page()
 public game_page(String text)
 	{
 	err.setText(text);
-	err.setBounds(100, 250, 300, 50);
+	err.setBounds(100, 275, 300, 50);
 	panel.add(err);
 	err.setFont(errFont);
-	err.setForeground(Color.red);
+	err.setForeground(errColor);
 	}
 
 public game_page(int width, int height )
@@ -34,6 +35,8 @@ public game_page(int width, int height )
 	panel.removeAll();
 	int dimention=50;
 	Color color = Color.decode("#34495e");
+
+	
 	for (int i= 0; i< 4;i++)
 	{
 		for (int j= 0; j< 4;j++)
@@ -232,7 +235,7 @@ public void add_buttons()
 	// for restart button	
 	JButton restart = new JButton("Restart");
 	panel.add(restart);
-	restart.setBounds(25, 380, 100, 50);
+	restart.setBounds(25, 370, 100, 50);
 	click click = new click(frame);
 	//click c = new click(values);
 	restart.addActionListener(click);
@@ -241,7 +244,7 @@ public void add_buttons()
 	// for undo button
 	JButton undo = new JButton("Undo");
 	panel.add(undo);
-	undo.setBounds(145, 380, 100, 50);
+	undo.setBounds(145, 370, 100, 50);
 	mouse m1=new mouse(undo);
 	undoListener back= new undoListener();
 	undo.addActionListener(back);
@@ -250,11 +253,14 @@ public void add_buttons()
 	// for redo button
 	JButton result = new JButton("Result");
 	panel.add(result);
-	result.setBounds(265, 380, 100, 50);
+	result.setBounds(265, 370, 100, 50);
 	mouse m2=new mouse(result);
 	result_checker r = new result_checker();
 	result.addActionListener(r);
-	
+	result.setFont(font);
+	undo.setFont(font);
+	restart.setFont(font);
+
 }
 public void set_error(String error)
 {

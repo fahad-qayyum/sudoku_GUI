@@ -6,6 +6,8 @@ import javax.swing.*;
 public class timer extends Component{
 	private int curr_time = 301;
 	private static boolean freeze = false;
+	Color color = Color.decode("#59FFA0");
+
   //  JLabel the_time = time1;
 	public timer()
 	{
@@ -39,17 +41,21 @@ public timer(textField[][] grid, JLabel countdownLabel) {
                 	{
                 		grid[i][j].get_tf().setEditable(false);
                 		game_page gp = new game_page("Game is over!");
+            			gp.err.setBounds(140, 275, 300, 50);
+
                 			
                     }
                 }
             }
+
+            
             else if (curr_time <= 60 )
             {
             	countdownLabel.setForeground(Color.red);
             }
             else if(curr_time > 60)
             {
-            	countdownLabel.setForeground(Color.green);
+            	countdownLabel.setForeground(color);
             }
         	}
          
